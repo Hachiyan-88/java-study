@@ -12,7 +12,6 @@ public class TodoRepository {
 		todos.add(todo);
 	}
 	
-	//今回のfindAllの引数なし
 	public List<Todo> findAll() {
 		return todos;
 		
