@@ -16,7 +16,8 @@ public class Main {
             System.out.println("1. Add Contact");
             System.out.println("2. List Contacts");
             System.out.println("3. Delete Contact");
-            System.out.println("4. Exit");
+            System.out.println("4. Seaarch Contact");
+            System.out.println("5. Exit");
             System.out.print("> ");
 
             int command = scanner.nextInt();
@@ -55,14 +56,20 @@ public class Main {
                     System.out.println("Deleted");
                     
                     break;
-
+                    
                 case 4:
+                	    System.out.println("Search Contacts");
+                	    scanner.close();
+                	    break;
+                	    
+
+                case 5:
                     System.out.println("Bye");
                     return;
 			default:
                     System.out.println("Unknown Command");
             }
-            scanner.close();
+         
         }
     }
 }

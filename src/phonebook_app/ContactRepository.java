@@ -22,6 +22,16 @@ public class ContactRepository {
 				return;
 			}
 		}
-		
+	}
+	public List<Contact> searchByName(String keyword) {
+	     List<Contact> result = new ArrayList<>();
+
+	     for (Contact c : contacts) {
+	         if (c.getName().contains(keyword)) {
+	             result.add(c);
+	         }
+	     }
+
+	return result;
 	}
 }
