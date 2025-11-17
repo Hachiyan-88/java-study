@@ -1,5 +1,6 @@
 package phonebook_app;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -16,12 +17,12 @@ public class Main {
             System.out.println("1. Add Contact");
             System.out.println("2. List Contacts");
             System.out.println("3. Delete Contact");
-            System.out.println("4. Seaarch Contact");
+            System.out.println("4. Search Contact");
             System.out.println("5. Exit");
             System.out.print("> ");
 
             int command = scanner.nextInt();
-            scanner.nextLine(); 
+            scanner.nextLine();  
 
             switch (command) {
 
@@ -53,23 +54,36 @@ public class Main {
                     scanner.nextLine();
 
                     repo.delete(id);
-                    System.out.println("Deleted");
-                    
+                    System.out.println("Deleted\n");
                     break;
-                    
+
                 case 4:
-                	    System.out.println("Search Contacts");
-                	    scanner.close();
-                	    break;
-                	    
+                    System.out.print("Search keyword: ");
+                    String keyword = scanner.nextLine();
+
+                    List<Contact> results = repo.searchByName(keyword);
+
+                    System.out.println("--- Search Results ---");
+
+                    if (results.isEmpty()) {
+                        System.out.println("No contacts found.\n");
+                    } else {
+                        for (Contact c : results) {
+                            System.out.println("[" + c.getId() + "] "
+                                    + c.getName() + " - " + c.getPhone());
+                        }
+                        System.out.println();
+                    }
+                    break;
 
                 case 5:
-                    System.out.println("Bye");
+                    System.out.println("Bye!");
+                    scanner.close();  
                     return;
-			default:
-                    System.out.println("Unknown Command");
+
+                default:
+                    System.out.println("Unknown Command\n");
             }
-         
         }
     }
 }

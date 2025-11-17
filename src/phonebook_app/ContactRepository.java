@@ -23,6 +23,8 @@ public class ContactRepository {
 			}
 		}
 	}
+	
+	//searchNameの追加
 	public List<Contact> searchByName(String keyword) {
 	     List<Contact> result = new ArrayList<>();
 
