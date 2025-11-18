@@ -53,8 +53,12 @@ public class Main {
                     int id = scanner.nextInt();
                     scanner.nextLine();
 
-                    repo.delete(id);
-                    System.out.println("Deleted\n");
+                    boolean deleted = repo.delete(id);
+                    if (deleted) {
+                    	System.out.println("Deleted\n");
+                    } else {
+                    	System.out.println("Delete failed: ID not found.\n");
+                    }
                     break;
 
                 case 4:
@@ -78,12 +82,12 @@ public class Main {
 
                 case 5:
                     System.out.println("Bye!");
-                    scanner.close();  
-                    return;
+                    return; //breakの場合はscannerを閉じるように
 
                 default:
                     System.out.println("Unknown Command\n");
             }
         }
+   // scanner.close();
     }
 }

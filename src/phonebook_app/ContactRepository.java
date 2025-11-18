@@ -15,13 +15,14 @@ public class ContactRepository {
 		return contacts;
 	}
 	
-	public void delete(int id) {
-		for(int i = 0; i < contacts.size(); i++ ) {
-			if(contacts.get(i).getId() ==id ) {
-				contacts.remove(i);
-				return;
+	public boolean delete(int id) {
+		for(Contact c : contacts) {
+			if (c.getId() == id) {
+				contacts.remove(c);
+				return true;
 			}
 		}
+		return false;
 	}
 	
 	//searchNameの追加
