@@ -22,5 +22,5 @@ public class Todo {
 		return title;
 	}
 	
-	
+}	
 

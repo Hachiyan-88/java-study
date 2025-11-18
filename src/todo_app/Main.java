@@ -57,6 +57,7 @@ public class Main {
 				
 			case 4:
 				System.out.println("Bye");
+				scanner.close();
 				return;
 				
 				
@@ -65,7 +66,6 @@ public class Main {
 			
 			}
 			
-		scanner.close();
 			
 		System.out.println();
 			
@@ -73,4 +73,4 @@ public class Main {
 
 	}
 
-
+}
